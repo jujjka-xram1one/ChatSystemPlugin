@@ -1,0 +1,31 @@
+name: ChatSystem
+version: '0.0.1'
+main: xi.jujjka.chatSystem.ChatSystem
+api-version: '1.20'
+authors: [ Jujjka ]
+
+commands:
+  do:
+    description: "Command for describing a third-person situation"
+    usage: "/do <message>"
+  ba:
+    description: "Command for shouting loudly"
+    usage: "/ba <message>"
+  fs:
+    description: "Command for whispering quietly"
+    usage: "/fs <message>"
+  ff:
+    description: "Command for speaking in a quiet voice"
+    usage: "/ff <message>"
+  kf:
+    description: "Command for private whispering"
+    usage: "/kf <message>"
+  ooc:
+    description: "Out of character local chat"
+    usage: "/ooc <message>"
+  gooc:
+    description: "Out of character global chat"
+    usage: "/gooc <message>"
+  renkler:
+    description: "Command for choosing emote color via GUI"
+    usage: "/renkler"

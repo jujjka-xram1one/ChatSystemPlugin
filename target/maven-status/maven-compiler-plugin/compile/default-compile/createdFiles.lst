@@ -1,0 +1,15 @@
+xi\jujjka\chatSystem\ChatSystem.class
+xi\jujjka\chatSystem\util\ChatColorUtil.class
+xi\jujjka\chatSystem\listener\Chat$Listener.class
+xi\jujjka\chatSystem\commands\OocCommand.class
+xi\jujjka\chatSystem\commands\DoCommand.class
+xi\jujjka\chatSystem\util\SoundBlocker.class
+xi\jujjka\chatSystem\commands\KfCommand.class
+xi\jujjka\chatSystem\util\MySQL.class
+xi\jujjka\chatSystem\commands\FsCommand.class
+xi\jujjka\chatSystem\commands\GoocCommand.class
+xi\jujjka\chatSystem\commands\RenklerCommand.class
+xi\jujjka\chatSystem\commands\FfCommand.class
+xi\jujjka\chatSystem\commands\BaCommand.class
+xi\jujjka\chatSystem\listener\ColorPickerListener.class
+xi\jujjka\chatSystem\util\LoggerUtil.class
