@@ -17,7 +17,7 @@ import xi.jujjka.chatSystem.util.SoundBlocker;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Chat$Listener implements Listener {
+public class ChatListener implements Listener {
 
     private static final Pattern QUOTES_PATTERN = Pattern.compile("\"([^\"]*)\"");
 
@@ -31,9 +31,15 @@ public class Chat$Listener implements Listener {
 
         LoggerUtil.logChat(player.getName(), message, ChatSystem.getInstance());
 
-        Component finalMessage = message.startsWith("*")
-                ? formatEmote(message.substring(1).trim(), emoteColor)
-                : formatSpeech(player, message);
+        Component finalMessage;
+
+        if (message.startsWith("*")) {
+            finalMessage = formatEmote(message.substring(1).trim(), emoteColor);
+        } else if (message.contains("\"")) {
+            finalMessage = formatSpeech(player, message);
+        } else {
+            finalMessage = Component.text("\"" + message + "\"", NamedTextColor.WHITE);
+        }
 
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.getLocation().distance(player.getLocation()) <= 15) {

@@ -16,7 +16,7 @@ public class OocCommand implements CommandExecutor {
         String message = String.join(" ", args).trim();
         if (message.isEmpty()) return false;
 
-        Component finalMessage = Component.text(player.getName() + " [OOC]: " + message, NamedTextColor.WHITE);
+        Component finalMessage = Component.text(player.getName() + " [OOC]: " + "\"" + message + "\"", NamedTextColor.WHITE);
 
         player.getWorld().getPlayers().forEach(p -> {
             if (p.getLocation().distance(player.getLocation()) <= 20) {

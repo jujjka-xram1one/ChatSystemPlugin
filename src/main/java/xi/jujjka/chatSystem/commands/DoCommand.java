@@ -34,24 +34,34 @@ public class DoCommand implements CommandExecutor {
     }
 
     private Component processMessage(Player player, String message, NamedTextColor emoteColor) {
-        Component messageComponent;
+        Component baseComponent = Component.text(player.getName() + ": ", NamedTextColor.WHITE)
+                .append(Component.text("[BİLGİ] ", emoteColor));
 
         if (message.startsWith("*")) {
             message = message.substring(1).trim();
-            messageComponent = formatMessage(player, "[BİLGİ] ", message, emoteColor);
-        } else if (message.startsWith("\"")) {
-            message = message.substring(1, message.length() - 1).trim();
-            messageComponent = formatMessage(player, "[BİLGİ] ", "\"" + message + "\"", NamedTextColor.WHITE);
-        } else {
-            messageComponent = formatMessage(player, "[BİLGİ] ", message, NamedTextColor.WHITE);
         }
 
-        return messageComponent;
+        return baseComponent.append(handleQuotes(message, emoteColor));
     }
 
-    private Component formatMessage(Player player, String prefix, String message, NamedTextColor color) {
-        return Component.text(player.getName() + ": ", NamedTextColor.WHITE)
-                .append(Component.text(prefix, color))
-                .append(Component.text(message, color));
+    private Component handleQuotes(String message, NamedTextColor emoteColor) {
+        String[] parts = message.split("\"", -1);
+        Component messageComponent = Component.empty();
+
+        // Adding the opening quote at the beginning
+        messageComponent = messageComponent.append(Component.text("\""));
+
+        for (int i = 0; i < parts.length; i++) {
+            if (i % 2 == 0) {
+                messageComponent = messageComponent.append(Component.text(parts[i], emoteColor));
+            } else {
+                messageComponent = messageComponent.append(Component.text(parts[i], NamedTextColor.WHITE).decorate(net.kyori.adventure.text.format.TextDecoration.ITALIC));
+            }
+        }
+
+        // Adding the closing quote at the end
+        messageComponent = messageComponent.append(Component.text("\""));
+
+        return messageComponent;
     }
 }

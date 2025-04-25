@@ -42,10 +42,11 @@ public class FfCommand implements CommandExecutor {
             finalMessage = formatMessage(player, "[Sessizce] ", message, emoteColor);
         } else if (message.startsWith("'''")) {
             message = message.substring(3).trim();
-            finalMessage = formatMessage(player, "[Sessizce] ", message, NamedTextColor.WHITE)
+            finalMessage = formatMessage(player, "[Sessizce] ", "\"" + message + "\"", NamedTextColor.WHITE)
                     .decoration(TextDecoration.ITALIC, true);
         } else {
-            finalMessage = formatMessage(player, "[Sessizce] ", message, NamedTextColor.WHITE);
+            finalMessage = formatMessage(player, "[Sessizce] ", "\"" + message + "\"", NamedTextColor.WHITE)
+                    .decoration(TextDecoration.ITALIC, true);
         }
 
         return finalMessage;
@@ -55,6 +56,7 @@ public class FfCommand implements CommandExecutor {
         return Component.text(prefix, color)
                 .append(Component.text(player.getName(), NamedTextColor.WHITE))
                 .append(Component.text(": ", NamedTextColor.WHITE))
-                .append(Component.text(message, color));
+                .append(Component.text(message, color).decorate(TextDecoration.ITALIC));
     }
 }
+

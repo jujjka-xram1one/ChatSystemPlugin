@@ -18,13 +18,13 @@ public class KfCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) return false;
         Player player = (Player) sender;
-
         List<Player> nearbyPlayers = new ArrayList<>();
         for (Entity entity : player.getNearbyEntities(1, 1, 1)) {
-            if (entity instanceof Player && entity != player) {
+            if (entity instanceof Player) {
                 nearbyPlayers.add((Player) entity);
             }
         }
+        nearbyPlayers.add(player);
 
         if (nearbyPlayers.isEmpty()) {
             return false;

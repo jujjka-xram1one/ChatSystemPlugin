@@ -19,10 +19,11 @@ public class GoocCommand implements CommandExecutor {
         if (message.isEmpty()) return false;
 
         NamedTextColor messageColor = ChatColorUtil.getColor("white");
-        Component finalMessage = Component.text(player.getName() + " [GOOC]: " + message, messageColor);
+        Component finalMessage = Component.text(player.getName() + " [GOOC]: " + "\"" + message + "\"", messageColor);
 
         Bukkit.getOnlinePlayers().forEach(p -> p.sendMessage(finalMessage));
 
         return true;
     }
 }
+

@@ -3,7 +3,7 @@ package xi.jujjka.chatSystem;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.plugin.java.JavaPlugin;
 import xi.jujjka.chatSystem.commands.*;
-import xi.jujjka.chatSystem.listener.Chat$Listener;
+import xi.jujjka.chatSystem.listener.ChatListener;
 import xi.jujjka.chatSystem.listener.ColorPickerListener;
 import xi.jujjka.chatSystem.util.MySQL;
 
@@ -31,7 +31,7 @@ public final class  ChatSystem extends JavaPlugin {
     }
 
     private void registerListeners() {
-        getServer().getPluginManager().registerEvents(new Chat$Listener(), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new ColorPickerListener(), this);
     }
 

@@ -40,12 +40,13 @@ public class FsCommand implements CommandExecutor {
         if (message.startsWith("*")) {
             message = message.substring(1).trim();
             finalMessage = formatMessage(player, "[Fısıldayarak] ", message, color);
-        } else if (message.startsWith("'''")) {
-            message = message.substring(3).trim();
-            finalMessage = formatMessage(player, "[Fısıldayarak] ", message, NamedTextColor.WHITE)
+        } else if (message.startsWith("\"") && message.endsWith("\"")) {
+            message = message.substring(1, message.length() - 1);
+            finalMessage = formatMessage(player, "[Fısıldayarak] ", "\"" + message + "\"", NamedTextColor.WHITE)
                     .decoration(TextDecoration.ITALIC, true);
         } else {
-            finalMessage = formatMessage(player, "[Fısıldayarak] ", message, NamedTextColor.WHITE);
+            finalMessage = formatMessage(player, "[Fısıldayarak] ", "\"" + message + "\"", NamedTextColor.WHITE)
+                    .decoration(TextDecoration.ITALIC, true);
         }
 
         return finalMessage;
@@ -58,3 +59,6 @@ public class FsCommand implements CommandExecutor {
                 .append(Component.text(message, color));
     }
 }
+
+
+

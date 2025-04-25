@@ -1,7 +1,7 @@
 name: ChatSystem
 version: '0.0.1'
 main: xi.jujjka.chatSystem.ChatSystem
-api-version: '1.20'
+api-version: '1.21'
 authors: [ Jujjka ]
 
 commands:
