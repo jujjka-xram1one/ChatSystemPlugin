@@ -28,12 +28,19 @@ Players can customize their emote colors through the Emote Color GUI, where they
 
 Command Summary:
 /do – Describes actions or situations in third-person perspective.
+
 /ba – Shout within a 30-block range, applying emote color.
+
 /fs – Whisper within a 2-block range, with italicized text in quotes.
+
 /ff – Whisper within a 7-block range, with italicized text in quotes.
+
 /kf – Private conversation (whisper) within 1 block, with automatic message output.
+
 /OOC – Out of character chat in the local area.
+
 /GOOC – Global Out of Character chat.
+
 /renkler – Opens the Emote Color GUI for color customization.
 
 This plugin enhances the roleplay experience on Minecraft servers by providing a wide variety of chat functionalities, emote customization, and immersive behaviors to enrich the gameplay and interactions between players.
